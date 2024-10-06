@@ -1,0 +1,64 @@
+/*
+YMCA Website Services style overrides.
+*/
+
+// Add dark-mode support to code highlighting. See https://www.docsy.dev/docs/adding-content/lookandfeel/#lightdark-color-themes
+@import 'td/code-dark';
+
+// Swap the sidebar nav and utility position
+aside.d-xl-block {
+  @media (min-width: 1200px) {
+    display: grid!important;
+  }
+
+  .td-toc {
+    order: 1;
+  }
+
+  .td-page-meta {
+    font-size: 0.9rem;
+    order: 2;
+  }
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.9rem;
+  padding-left: 1em;
+  margin-top: 0.25em;
+}
+
+figcaption, iframe {
+  @extend .td-max-width-on-larger-screens;
+}
+
+// Reset the reset for definition list description.
+dd {
+  margin-left: revert;
+}
+
+// Override Bootstrap's kbd styles
+kbd {
+  display: inline-block;
+  background: #f5f5f5;
+  border: solid 1px #b5c6d2;
+  border-bottom-color: #97afbf;
+  box-shadow: inset 0 -1px 0 #97afbf;
+  font-family: Monaco,Menlo,Consolas,"Roboto Mono","Courier New","Ubuntu Mono",monospace;
+  font-size: .8em;
+  padding: .25em .5em;
+  line-height: 1em;
+  vertical-align: middle;
+  border-radius: 3px;
+  color: inherit;
+}
+
+// Fix Algolia DocSearch item scroll bug
+.DocSearch-Hit-content-wrapper {
+  overflow-y: hidden;
+}
+
+// Hide the sidebar taxonomy cloud because `taxonomyCloud = []` stopped working
+aside .taxonomy-terms-cloud {
+  display: none;
+}

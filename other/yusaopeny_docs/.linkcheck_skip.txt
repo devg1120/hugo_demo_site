@@ -1,0 +1,8 @@
+# Skip github links on every page
+
+ https://github.com/ycloudyusa/yusaopeny_docs/.*
+ mailto
+ email-protection
+
+ # Skip checking print until we can fix some issues with images and links.
+ _print
