@@ -63,11 +63,12 @@ window.markmap = {
 {{ $jsMarkmap := resources.Get "js/markmap.js" | resources.ExecuteAsTemplate "js/markmap.js" . -}}
 {{ $jsPlantuml := resources.Get "js/plantuml.js" | resources.ExecuteAsTemplate "js/plantuml.js" . -}}
 {{ $jsDrawio := resources.Get "js/drawio.js" | resources.ExecuteAsTemplate "js/drawio.js" . -}}
+{{ $jsToggle := resources.Get "js/toggle.js" | resources.ExecuteAsTemplate "js/toggle.js" . -}}
 {{ if .Site.Params.offlineSearch -}}
   {{ $jsSearch = resources.Get "js/offline-search.js" -}}
 {{ end -}}
 
-{{ $jsArray := slice $jsBs $jsBase $jsSearch $jsPlantuml $jsMarkmap $jsDrawio -}}
+{{ $jsArray := slice $jsBs $jsBase $jsSearch $jsPlantuml $jsMarkmap $jsDrawio $jsToggle -}}
 
 {{ if .Page.Store.Get "hasmermaid" -}}
 {{- partial "scripts/mermaid.html" . -}}
@@ -76,6 +77,7 @@ window.markmap = {
 {{ if .Site.Params.ui.showLightDarkModeMenu -}}
   {{ $jsArray = $jsArray | append (resources.Get "js/dark-mode.js") -}}
 {{ end -}}
+
 
 {{ $js := $jsArray | resources.Concat "js/main.js" -}}
 {{ if hugo.IsProduction -}}
