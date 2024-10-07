@@ -1,0 +1,3 @@
+
+
+cp -r ./themes/docsy/layouts/partials  ./layouts
